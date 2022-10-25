@@ -1,12 +1,12 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
+using Zenject; 
 
 namespace BallGame.Scripts.Game.Score.UI
 {
     public class ScoreText : MonoBehaviour
     {
-        [SerializeField] private ScoreInstance scoreInstance;
+        [Inject] private Score _scoreModel;
 
         private TextMeshProUGUI _scoreText;
 
@@ -17,12 +17,12 @@ namespace BallGame.Scripts.Game.Score.UI
 
         private void OnEnable()
         {
-            scoreInstance.Instance.ScoreChanged += OnScoreChanged;
+            _scoreModel.ScoreChanged += OnScoreChanged;
         }
 
         private void OnDisable()
         {
-            scoreInstance.Instance.ScoreChanged -= OnScoreChanged;
+            _scoreModel.ScoreChanged -= OnScoreChanged;
         }
 
         private void OnScoreChanged(int score)

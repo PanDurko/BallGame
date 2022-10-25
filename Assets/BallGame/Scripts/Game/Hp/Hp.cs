@@ -2,7 +2,7 @@
 
 namespace BallGame.Scripts.Game.Hp
 {
-    public class Hp
+    public class Hp 
     {
         public event Action<int> HpChanged;
 

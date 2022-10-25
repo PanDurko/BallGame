@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject; 
 
 namespace BallGame.Scripts.Game.Pool 
 {  
@@ -14,7 +15,9 @@ namespace BallGame.Scripts.Game.Pool
 
         [SerializeField] private bool autoExpand;
 
-        private List<PoolObject> _pool; 
+        private List<PoolObject> _pool;
+        
+        [Inject] private DiContainer _diContainer;
 
         private void OnValidate()
         {
@@ -37,7 +40,7 @@ namespace BallGame.Scripts.Game.Pool
 
         private PoolObject CreateElement(bool isActiveByDefault = false)
         {
-            var newObject = Instantiate(prefab, container);
+            PoolObject newObject = _diContainer.InstantiatePrefab(prefab, container).gameObject.GetComponent<PoolObject>();
             newObject.gameObject.SetActive(isActiveByDefault);
             
             _pool.Add(newObject);

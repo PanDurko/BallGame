@@ -1,20 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 namespace BallGame.Scripts.Game.Hp.UI
 {
     public class DefeatScene : MonoBehaviour
     {
-        [SerializeField] private DefeatInstance defeatModel;
+        [Inject] private GameDefeat _defeatModel;
 
         private void OnEnable()
         {
-            defeatModel.Instance.GameDefeated += OnGameDefeated;
+            _defeatModel.GameDefeated += OnGameDefeated;
         }
 
         private void OnDisable()
         {
-            defeatModel.Instance.GameDefeated -= OnGameDefeated;
+            _defeatModel.GameDefeated -= OnGameDefeated;
         }
 
         private void OnGameDefeated()

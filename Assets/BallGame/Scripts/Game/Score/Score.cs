@@ -2,7 +2,7 @@
 
 namespace BallGame.Scripts.Game.Score
 {
-    public class Score 
+    public class Score
     {
         public event Action<int> ScoreChanged;
 

@@ -1,21 +1,21 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using Zenject; 
 
 namespace BallGame.Scripts.Game.Hp
 {
     public class DefeatTrigger : MonoBehaviour
     {
-        [SerializeField] private HpInstance hp;
-        [SerializeField] private DefeatInstance defeatModel;
+        [Inject] private Hp _hpModel;
+        [Inject] private GameDefeat _defeatModel;
 
         private void OnEnable()
         {
-            hp.Instance.HpChanged += defeatModel.Instance.CheckHp; 
+            _hpModel.HpChanged += _defeatModel.CheckHp; 
         }
 
         private void OnDisable()
         {
-            hp.Instance.HpChanged -= defeatModel.Instance.CheckHp; 
+            _hpModel.HpChanged -= _defeatModel.CheckHp; 
         }
     }
 }

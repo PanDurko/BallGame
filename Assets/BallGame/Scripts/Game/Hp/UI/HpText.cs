@@ -1,12 +1,12 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace BallGame.Scripts.Game.Hp.UI
 {
     public class HpText : MonoBehaviour
     {
-        [SerializeField] private HpInstance hp; 
+        [Inject] private Hp _hpModel; 
             
         private TextMeshProUGUI _hpText; 
         
@@ -17,12 +17,12 @@ namespace BallGame.Scripts.Game.Hp.UI
 
         private void OnEnable()
         {
-            hp.Instance.HpChanged += OnHpChanged;
+            _hpModel.HpChanged += OnHpChanged;
         }
 
         private void OnDisable()
         {
-            hp.Instance.HpChanged -= OnHpChanged;
+            _hpModel.HpChanged -= OnHpChanged;
         }
 
         private void OnHpChanged(int currentHp)
