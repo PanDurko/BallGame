@@ -15,6 +15,9 @@ namespace BallGame.Scripts.Game.Score
  
          private void OnMouseDown()
          {
+             if(Time.timeScale == 0)
+                return;
+             
              _scoreModel.AddScore();
          }
      }

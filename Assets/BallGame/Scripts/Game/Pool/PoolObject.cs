@@ -7,14 +7,6 @@ namespace BallGame.Scripts.Game.Pool
         public void ReturnToPool() 
         {
             gameObject.SetActive(false);
-        }   
-        
-        public void ReturnToPool(float destroyTime)
-        {
-            destroyTime -= Time.deltaTime;
-            
-            if(destroyTime <= 0)
-                gameObject.SetActive(false);
-        }   
+        }
     }
 }

@@ -9,7 +9,6 @@ namespace BallGame.Scripts.Game.Spawner
         [SerializeField] private Pool.PoolObject poolObject;
 
         [SerializeField] private float xPosition;
-        [SerializeField] private float ballDestroyTime;
         [SerializeField] private float nextBallTime;
 
         private void Start()
@@ -24,9 +23,7 @@ namespace BallGame.Scripts.Game.Spawner
                 yield return new WaitForSeconds(nextBallTime);
             
                 Vector3 newPosition = GetPosition();
-                pool.GetFreeElement(newPosition); 
-                
-                poolObject.ReturnToPool(ballDestroyTime);
+                pool.GetFreeElement(newPosition);
             }
         }
 
