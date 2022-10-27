@@ -1,6 +1,6 @@
 ## About 
 
-Unity 2D Ball Game targeting for Android devices. 
+Unity 2D Ball Game with Zenject DI-Conatiner, targeting for Android devices. 
 
 Target platform: Android
 
