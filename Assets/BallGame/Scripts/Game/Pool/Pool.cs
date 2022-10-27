@@ -17,7 +17,13 @@ namespace BallGame.Scripts.Game.Pool
 
         private List<PoolObject> _pool;
         
-        [Inject] private DiContainer _diContainer;
+        private DiContainer _diContainer;
+
+        [Inject]
+        private void MonoConstructor(DiContainer diContainer) 
+        {
+            _diContainer = diContainer; 
+        }
 
         private void OnValidate()
         {

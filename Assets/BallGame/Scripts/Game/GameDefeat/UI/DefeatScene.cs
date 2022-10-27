@@ -6,8 +6,14 @@ namespace BallGame.Scripts.Game.Hp.UI
 {
     public class DefeatScene : MonoBehaviour
     {
-        [Inject] private GameDefeat _defeatModel;
+        private GameDefeat _defeatModel;
 
+        [Inject]
+        private void MonoConstructor(GameDefeat defeatModel)
+        {
+            _defeatModel = defeatModel; 
+        }
+        
         private void OnEnable()
         {
             _defeatModel.GameDefeated += OnGameDefeated;

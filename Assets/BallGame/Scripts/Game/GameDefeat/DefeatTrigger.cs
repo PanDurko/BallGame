@@ -5,8 +5,15 @@ namespace BallGame.Scripts.Game.Hp
 {
     public class DefeatTrigger : MonoBehaviour
     {
-        [Inject] private Hp _hpModel;
-        [Inject] private GameDefeat _defeatModel;
+        private Hp _hpModel;
+        private GameDefeat _defeatModel;
+
+        [Inject]
+        private void MonoConstructor(Hp hpModel, GameDefeat defeatModel)
+        {
+            _defeatModel = defeatModel; 
+            _hpModel = hpModel; 
+        }
 
         private void OnEnable()
         {

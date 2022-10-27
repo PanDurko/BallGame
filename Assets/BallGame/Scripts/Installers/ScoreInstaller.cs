@@ -5,6 +5,11 @@ public class ScoreInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
+        BindScore();
+    }
+
+    private void BindScore()
+    {
         Container.Bind<Score>().FromNew().AsSingle().NonLazy();
     }
 }

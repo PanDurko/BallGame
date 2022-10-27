@@ -6,9 +6,15 @@ namespace BallGame.Scripts.Game.Score.UI
 {
     public class ScoreText : MonoBehaviour
     {
-        [Inject] private Score _scoreModel;
-
         private TextMeshProUGUI _scoreText;
+    
+        private Score _scoreModel;
+    
+        [Inject]
+        private void MonoConstructor(Score scoreModel) 
+        {
+            _scoreModel = scoreModel; 
+        }
 
         private void Awake()
         {

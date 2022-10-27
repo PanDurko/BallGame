@@ -5,10 +5,16 @@ using Zenject;
 namespace BallGame.Scripts.Game.Hp.UI
 {
     public class HpText : MonoBehaviour
-    {
-        [Inject] private Hp _hpModel; 
-            
+    {      
         private TextMeshProUGUI _hpText; 
+     
+        private Hp _hpModel;
+        
+        [Inject]
+        private void MonoConstructor(Hp hpModel) 
+        {
+            _hpModel = hpModel; 
+        }
         
         private void Awake()
         {
