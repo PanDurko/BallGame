@@ -6,7 +6,7 @@ namespace BallGame.Scripts.Game.Hp
     {
         public event Action<int> HpChanged;
 
-            private int _currentHp = 100;
+        private int _currentHp = 100;
 
         public void DecreaseHp()
         {

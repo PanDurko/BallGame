@@ -1,17 +1,19 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using BallGame.Scripts.Game.GameScenes;
+using UnityEngine;
 using Zenject;
 
 namespace BallGame.Scripts.Game.Hp.UI
 {
-    public class DefeatScene : MonoBehaviour
+    public class DefeatView : MonoBehaviour
     {
+        private SceneLoader _sceneLoader; 
         private GameDefeat _defeatModel;
 
         [Inject]
-        private void MonoConstructor(GameDefeat defeatModel)
+        private void MonoConstructor(GameDefeat defeatModel, SceneLoader sceneLoader)
         {
-            _defeatModel = defeatModel; 
+            _defeatModel = defeatModel;
+            _sceneLoader = sceneLoader; 
         }
         
         private void OnEnable()
@@ -26,7 +28,7 @@ namespace BallGame.Scripts.Game.Hp.UI
 
         private void OnGameDefeated()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            _sceneLoader.ChangeSceneTo(Scenes.DefeatScene);
         }
     }
 }
